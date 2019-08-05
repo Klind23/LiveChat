@@ -2,12 +2,17 @@
     ViewBag.Title = "Chat";
 }
 <h2>Chat</h2>
-<div class="container">
-    <input type="button" id="login" value="Login" />
-    <input type="button" id="register" value="Register" /> <br />
+
+<input type="button" id="login" value="Login" />
+<input type="button" id="register" value="Register" /> <br />
+
+<div class="container" id="loginForm" hidden>
     <input type="text" id="username" placeholder="Username" /> <br />
     <input type="text" id="password" placeholder="Password" />
-    <ul id="discussion"></ul>
+</div>
+
+<div class="container" id="registerForm" hidden>
+    <input type="text" id="confirmPassword" placeholder="Confirm Password" />
 </div>
 @section scripts {
     <!--Script references. -->
@@ -38,12 +43,25 @@
                     $('#message').val('').focus();
                 });
             });
+            $('#login').click(function () {
+                $('#loginForm').show()
+                $('#username').show()
+                $('#password').show()
+                $('#confirmPassword').hide()  
+
+            })
+            $('#register').click(function () {
+                $('#registerForm').show()
+                $('#username').show()
+                $('#password').show()  
+                $('#confirmPassword').show()                 
+            })
         });
         // This optional function html-encodes messages for display in the page.
         function htmlEncode(value) {
             var encodedValue = $('<div />').text(value).html();
             return encodedValue;
         }
-        
+
     </script>
 }
