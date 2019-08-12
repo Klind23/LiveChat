@@ -9,7 +9,6 @@ namespace LiveChat
     {
         public void Configuration(IAppBuilder app)
         {
-
             app.MapSignalR();
         }
     }

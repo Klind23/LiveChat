@@ -17,16 +17,16 @@ namespace LiveChat.Controllers
 
 
         [HttpPost]
-        public ActionResult Authorize(UserModel user)
+        public ActionResult Authorize(PerdoruesModel perdorues)
         {
             using (var context = new LivechatContext())
             {
-                var userDetails = context.Perdorues.Where(x => x.Username == user.Username && x.Password == user.Password)
+                var userDetails = context.Perdorues.Where(x => x.Username == x.Username && x.Password == x.Password)
                                                    .FirstOrDefault();
                 if (userDetails == null)
                 {
-                    user.LoginErrorMessage = "Wrong password or username.";
-                    return View("Index", user);
+                    perdorues.LoginErrorMessage = "Wrong password or username.";
+                    return View("Index", perdorues);
                 }
                 else
                 {

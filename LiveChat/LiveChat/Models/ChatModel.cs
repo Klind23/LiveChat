@@ -13,6 +13,6 @@ namespace LiveChat.Models
         public int Id { get; set; }
         public string Message { get; set; }
         public DateTime Time { get; set; }
-        public UserModel User { get; set; }
+        public PerdoruesModel User { get; set; }
     }
 }

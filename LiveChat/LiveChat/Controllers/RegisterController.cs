@@ -17,17 +17,17 @@ namespace LiveChat.Controllers
 
 
         [HttpPost]
-        public ActionResult Register(UserModel user)
+        public ActionResult Register(PerdoruesModel perdorues)
         {
-            if (user.Password == user.ConfirmPassword)
+            if (ModelState.IsValid)
                 using (var context = new LivechatContext())
                 {
-                    context.Perdorues.Add(user);
+                    context.Perdorues.Add(perdorues);
                     context.SaveChanges();
                 }
 
-            else user.LoginErrorMessage = "Passwords do not match !";
-            return View();
+            else perdorues.LoginErrorMessage = "Passwords do not match !";
+            return View("Index", perdorues);
         }
     }
 }

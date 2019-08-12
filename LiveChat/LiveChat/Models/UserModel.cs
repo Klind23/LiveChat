@@ -1,31 +1,25 @@
-﻿using System;
+﻿using LiveChat.Infrastructure;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace LiveChat.Models
-{
-    public class UserModel
+{ 
+    public class UserModel : IdentityUser<Guid, UserLoginModel, UserRoleModel, UserClaimModel>
     {
-        [Key]
-        public int UserId { get; set; }
 
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(ApplicationUserManager manager, string authenticationType)
+        {
+            var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
+            // Add custom user claims here
+            return userIdentity;
+        }
         
-        [Display(Name ="User Name")]
-        [Required(ErrorMessage ="This field is required")]
-        public string Username { get; set; }
-
-        [Display(Name = "Password")]
-        [Required(ErrorMessage = "This field is required")]
-        public string Password { get; set; }
-
-        [Display(Name = "Confirm Password")]
-        [Required(ErrorMessage = "This field is required")]
-        public string ConfirmPassword { get; set; }
-
-        public string LoginErrorMessage { get; set; }
-
     }
 
 }

@@ -8,7 +8,7 @@ using System.Web;
 
 namespace LiveChat.Models
 {
-    public class LivechatContext :IdentityDbContext
+    public class LivechatContext : IdentityDbContext<UserModel, RoleModel, Guid, UserLoginModel, UserRoleModel, UserClaimModel>
     {
         public LivechatContext() : base("LivechatContext")
         {
@@ -22,10 +22,10 @@ namespace LiveChat.Models
             return new LivechatContext();
         }
 
-        public DbSet<ChatModel> Chat { get; set; }
-        public DbSet<UserModel> Perdorues { get; set; }
+        //public DbSet<ChatModel> Chat { get; set; }
+        public DbSet<PerdoruesModel> Perdorues { get; set; }
 
-        protected void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
