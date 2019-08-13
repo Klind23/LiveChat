@@ -2,7 +2,6 @@
 using Microsoft.Owin;
 
 [assembly: OwinStartup(typeof(LiveChat.Startup))]
-
 namespace LiveChat
 {
     public class Startup
