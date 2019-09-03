@@ -25,16 +25,24 @@ namespace LiveChat.Controllers
                 {
                     return View("Login", perdorues);
                 }
-
+                //if (perdorues.Username == "klind" && perdorues.Password == "milan4ever")
+                //{
+                //    return View("Login", perdorues);
+                //}
                 var userDetails = context.Perdorues.Where(x => x.Username == perdorues.Username && x.Password == perdorues.Password).FirstOrDefault();
 
                 if (userDetails == null)
                 {
                     return View("Login", perdorues);
                 }
+                //if (perdorues.Username != "klind" || perdorues.Password != "milan4ever")
+                //{
+                //    return View("Login", perdorues);
+                //}
                 else
                 {
-                    Session["UserID"] = userDetails.UserId;
+                    System.Web.HttpContext.Current.Session["UserID"] = userDetails.UserId.ToString();
+                    System.Web.HttpContext.Current.Session["Username"] = userDetails.Username.ToString();
                     return RedirectToAction("Index", "Home");
                 }
             }

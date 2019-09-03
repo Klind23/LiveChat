@@ -1,12 +1,14 @@
-﻿@{
+﻿@model LiveChat.Models.PerdoruesModel
+@{
     ViewBag.Title = "Home Page";
 }
+
 
 <div class="messaging" id="chatWindow">
     <div class="inbox_msg">
         <div class="mesgs">
             <div class="msg_history" id="messageList">
-                
+
             </div>
             <div class="type_msg">
                 <div class="input_msg_write">
@@ -24,9 +26,13 @@
     <script>
         var chatHub = $.connection.chatHub;
         console.log(chatHub);
+        @if (Session["Username"] != null) {
+            var username = @Session["Username"].ToString();
+         }
+       
 
         $('#sendMessageBtn').click(function () {
-            chatHub.server.newMessage(sessionStorage.username, $('#sendMessageText').val())
+            chatHub.server.newMessage(username, $('#sendMessageText').val())
             makeOutgoingMessage($('#sendMessageText').val());
             $('#sendMessageText').val('');
         })
@@ -34,7 +40,7 @@
         function makeOutgoingMessage(message) {
             var newMsg = $('<div class="outgoing_msg"><div class="sent_msg"><p class="msg_body"></p><span class="msg_sub_text"></span></div></div>');
             newMsg.find('.msg_body').text(message);
-            newMsg.find('.msg_sub_text').text("Sent by " + );
+            newMsg.find('.msg_sub_text').text("Sent by " + username);
             $('#messageList').append(newMsg);
         }
 
