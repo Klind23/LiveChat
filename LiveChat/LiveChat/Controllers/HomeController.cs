@@ -16,6 +16,11 @@ namespace LiveChat.Controllers
             return View();
         }
 
+        public ActionResult Register()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Login(PerdoruesModel perdorues)
         {
@@ -41,11 +46,24 @@ namespace LiveChat.Controllers
                 //}
                 else
                 {
-                    System.Web.HttpContext.Current.Session["UserID"] = userDetails.UserId.ToString();
-                    System.Web.HttpContext.Current.Session["Username"] = userDetails.Username.ToString();
+                    Session["UserID"] = userDetails.UserId.ToString();
+                    Session["Username"] = userDetails.Username.ToString();
                     return RedirectToAction("Index", "Home");
                 }
             }
+        }
+
+        [HttpPost]
+        public ActionResult Register(PerdoruesModel perdorues)
+        {
+            if (perdorues.Password == perdorues.confirmPassword)
+                if (ModelState.IsValid)
+                    using (var context = new LiveChatContext())
+                    {
+                        context.Perdorues.Add(perdorues);
+                        context.SaveChanges();
+                    }
+            return View("Login");
         }
     }
 }

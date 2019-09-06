@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -20,5 +21,14 @@ namespace LiveChat.Models
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
+
+        [Required]
+        [Display(Name = "Admin")]
+        public bool isAdmin { get; set; }
+
+        [NotMapped]
+        [Display(Name = "Confirm Password")]
+        [CompareAttribute("Password", ErrorMessage = "Passwords do not match.")]
+        public string confirmPassword { get; set; }
     }
 }

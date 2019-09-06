@@ -191,6 +191,18 @@
     <Compile Include="Migrations\201909021502054_model1.Designer.cs">
       <DependentUpon>201909021502054_model1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909061330081_model2.cs" />
+    <Compile Include="Migrations\201909061330081_model2.Designer.cs">
+      <DependentUpon>201909061330081_model2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909061400570_model3.cs" />
+    <Compile Include="Migrations\201909061400570_model3.Designer.cs">
+      <DependentUpon>201909061400570_model3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909061402419_model4.cs" />
+    <Compile Include="Migrations\201909061402419_model4.Designer.cs">
+      <DependentUpon>201909061402419_model4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LiveChatContext.cs" />
     <Compile Include="Models\PerdoruesModel.cs" />
@@ -238,6 +250,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -263,6 +276,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201909021502054_model1.resx">
       <DependentUpon>201909021502054_model1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909061330081_model2.resx">
+      <DependentUpon>201909061330081_model2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909061400570_model3.resx">
+      <DependentUpon>201909061400570_model3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909061402419_model4.resx">
+      <DependentUpon>201909061402419_model4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
