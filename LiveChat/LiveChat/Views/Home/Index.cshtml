@@ -47,7 +47,8 @@
             newMsg.find('.msg_sub_text').text("Sent by " + sender + " on " + new Date(date));
             $('#messageList').append(newMsg);
         }
-
+   
+       
         chatHub.client.sentMessage = function (username, message, date) {
             makeIncomingMessage(message, username, date)
         }

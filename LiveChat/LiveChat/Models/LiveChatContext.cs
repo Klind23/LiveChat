@@ -20,5 +20,6 @@ namespace LiveChat.Models
         }
 
         public DbSet <PerdoruesModel> Perdorues { get; set; }
+        public DbSet <RegisterModel> Register { get; set; }
     }
 }

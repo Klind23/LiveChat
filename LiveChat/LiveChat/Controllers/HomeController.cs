@@ -13,12 +13,22 @@ namespace LiveChat.Controllers
 
         public ActionResult Login()
         {
-            return View();
+            if (Session["UserID"] != null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+                return View();
         }
 
         public ActionResult Register()
         {
-            return View();
+            if (Session["UserID"] != null)
+            {
+                return RedirectToAction("Register", "Home");
+            }
+            else
+                return View();
         }
 
         [HttpPost]
@@ -54,13 +64,13 @@ namespace LiveChat.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(PerdoruesModel perdorues)
+        public ActionResult Register(RegisterModel register)
         {
-            if (perdorues.Password == perdorues.confirmPassword)
+            if (register.Password == register.confirmPassword)
                 if (ModelState.IsValid)
                     using (var context = new LiveChatContext())
                     {
-                        context.Perdorues.Add(perdorues);
+                        context.Register.Add(register);
                         context.SaveChanges();
                     }
             return View("Login");

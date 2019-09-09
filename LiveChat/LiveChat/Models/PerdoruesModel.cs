@@ -22,13 +22,7 @@ namespace LiveChat.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Required]
-        [Display(Name = "Admin")]
-        public bool isAdmin { get; set; }
+        public ChatModel Chat { get; set; }
 
-        [NotMapped]
-        [Display(Name = "Confirm Password")]
-        [CompareAttribute("Password", ErrorMessage = "Passwords do not match.")]
-        public string confirmPassword { get; set; }
     }
 }

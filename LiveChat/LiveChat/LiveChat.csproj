@@ -203,9 +203,15 @@
     <Compile Include="Migrations\201909061402419_model4.Designer.cs">
       <DependentUpon>201909061402419_model4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909090811073_model5.cs" />
+    <Compile Include="Migrations\201909090811073_model5.Designer.cs">
+      <DependentUpon>201909090811073_model5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ChatModel.cs" />
     <Compile Include="Models\LiveChatContext.cs" />
     <Compile Include="Models\PerdoruesModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -285,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909061402419_model4.resx">
       <DependentUpon>201909061402419_model4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909090811073_model5.resx">
+      <DependentUpon>201909090811073_model5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
