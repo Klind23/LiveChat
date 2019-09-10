@@ -44,7 +44,7 @@ namespace LiveChat.Controllers
                 //{
                 //    return View("Login", perdorues);
                 //}
-                var userDetails = context.Perdorues.Where(x => x.Username == perdorues.Username && x.Password == perdorues.Password).FirstOrDefault();
+                var userDetails = context.Perdorues.Where(x => x.username == perdorues.username && x.password == perdorues.password).FirstOrDefault();
 
                 if (userDetails == null)
                 {
@@ -56,8 +56,8 @@ namespace LiveChat.Controllers
                 //}
                 else
                 {
-                    Session["UserID"] = userDetails.UserId.ToString();
-                    Session["Username"] = userDetails.Username.ToString();
+                    Session["UserID"] = userDetails.userId.ToString();
+                    Session["Username"] = userDetails.username.ToString();
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -66,7 +66,7 @@ namespace LiveChat.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel register)
         {
-            if (register.Password == register.confirmPassword)
+            if (register.password == register.confirmPassword)
                 if (ModelState.IsValid)
                     using (var context = new LiveChatContext())
                     {

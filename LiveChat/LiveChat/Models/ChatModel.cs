@@ -9,10 +9,10 @@ namespace LiveChat.Models
     public class ChatModel
     {
         [Key]
-        public int Id { get; set; }
-        public PerdoruesModel Perdorues { get; set; }
-        public int PerdoruesId { get; set; }
-        public DateTime KohaMesazhit { get; set; }
-        public string Mesazhi { get; set; }
+        public int id { get; set; }
+        public PerdoruesModel perdorues { get; set; }
+        public int perdoruesId { get; set; }
+        public DateTime kohaMesazhit { get; set; }
+        public string mesazhi { get; set; }
     }
 }

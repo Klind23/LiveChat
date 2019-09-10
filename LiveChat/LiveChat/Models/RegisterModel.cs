@@ -10,17 +10,17 @@ namespace LiveChat.Models
     public class RegisterModel
     {
         [Key]
-        public int UserId { get; set; }
+        public int userId { get; set; }
 
         [Required]
         [Display(Name = "Username")]
-        public string Username { get; set; }
+        public string username { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
-        public string Password { get; set; }
+        public string password { get; set; }
 
         [Required]
         [Display(Name = "Admin")]
