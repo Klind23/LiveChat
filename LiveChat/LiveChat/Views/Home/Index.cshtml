@@ -47,8 +47,13 @@
             newMsg.find('.msg_sub_text').text("Sent by " + sender + " on " + new Date(date));
             $('#messageList').append(newMsg);
         }
-   
-       
+
+        $('html').keydown(function (e) {
+            if (e.which == 13) {
+                $('#sendMessageBtn').trigger('click');
+            }
+        })
+
         chatHub.client.sentMessage = function (username, message, date) {
             makeIncomingMessage(message, username, date)
         }

@@ -25,10 +25,11 @@ namespace LiveChat.Controllers
         {
             if (Session["UserID"] != null)
             {
-                return RedirectToAction("Register", "Home");
+                return RedirectToAction("Index", "Home");
             }
             else
                 return View();
+                
         }
 
         [HttpPost]
@@ -66,7 +67,6 @@ namespace LiveChat.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel register)
         {
-            if (register.password == register.confirmPassword)
                 if (ModelState.IsValid)
                     using (var context = new LiveChatContext())
                     {
