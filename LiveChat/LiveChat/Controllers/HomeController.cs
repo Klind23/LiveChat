@@ -8,7 +8,12 @@ namespace LiveChat.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (Session["UserID"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            else
+                return View();
         }
 
         public ActionResult Login()
@@ -29,7 +34,7 @@ namespace LiveChat.Controllers
             }
             else
                 return View();
-                
+
         }
 
         [HttpPost]
@@ -67,12 +72,12 @@ namespace LiveChat.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel register)
         {
-                if (ModelState.IsValid)
-                    using (var context = new LiveChatContext())
-                    {
-                        context.Register.Add(register);
-                        context.SaveChanges();
-                    }
+            if (ModelState.IsValid)
+                using (var context = new LiveChatContext())
+                {
+                    context.Register.Add(register);
+                    context.SaveChanges();
+                }
             return View("Login");
         }
     }
