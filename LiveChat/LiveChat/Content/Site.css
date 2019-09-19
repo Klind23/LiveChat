@@ -3,15 +3,11 @@
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
@@ -38,7 +34,7 @@ input, button {
     width: 92%;
 }
 
-.received_withd_msg p {
+.received_width_msg p {
     background: #ebebeb none repeat scroll 0 0;
     border-radius: 3px;
     color: #646464;
@@ -55,7 +51,7 @@ input, button {
     margin: 8px 0 0;
 }
 
-.received_withd_msg {
+.received_width_msg {
     width: 57%;
 }
 

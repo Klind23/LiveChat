@@ -13,7 +13,11 @@ namespace LiveChat
 
         public override Task OnConnected()
         {
-            Clients.Caller.initMessage(chatContext.Chat.Include(x => x.perdorues).OrderByDescending(x => x.kohaMesazhit).Take(10).OrderBy(x=>x.kohaMesazhit).Select(x => new { x.mesazhi, x.kohaMesazhit, x.perdorues.username }).ToList());
+            Clients.Caller.initMessage(chatContext.Chat.Include(x => x.perdorues).OrderByDescending(x => x.kohaMesazhit)
+                                                  .Take(10)
+                                                  .OrderBy(x=>x.kohaMesazhit)
+                                                  .Select(x => new { x.mesazhi, x.kohaMesazhit, x.perdorues.username })
+                                                  .ToList());
             return base.OnConnected();
         }
 
